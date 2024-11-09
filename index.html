@@ -1,0 +1,1487 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE Leaderboard</title>
+    <style>
+        /* Custom background styling for the page */
+        body {
+            background-image: url('background.jpg'); /* Use local background file */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #f0e6d2;
+            font-family: 'Trebuchet MS', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ff4500;
+            text-align: center;
+        }
+        .table-container {
+            width: 80%;
+            min-width: 600px; /* Minimum width for table container */
+            margin-top: 100px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8); /* Dark overlay for readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        /* Image styling for the logo or header image */
+        .header-image {
+            display: block;
+            margin: 0 auto 20px auto; /* Center the image and add margin below it */
+            width: 200px; /* Set a width that fits well */
+            height: auto; /* Maintain aspect ratio */
+        }
+        /* Custom table styling */
+        #leaderboard {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #2c2c2c;
+        }
+        #leaderboard thead th {
+            background-color: #333;
+            color: #c6ddd5;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        #leaderboard tbody td {
+            padding: 8px;
+            text-align: center;
+            color: #f0e6d2;
+        }
+        #leaderboard tbody tr:nth-child(even) {
+            background-color: #3a3a3a;
+        }
+        #leaderboard tbody tr:nth-child(odd) {
+            background-color: #2c2c2c;
+        }
+        #leaderboard tbody tr:hover {
+            background-color: #444 !important;
+        }
+        /* Column for death icon */
+        .death-icon {
+            width: 16px;
+            height: 16px;
+            background-image: url('https://poe-racing.com/img/dead.png');
+            background-size: cover;
+            margin: auto;
+        }
+        /* Styling for search bar and filter dropdowns */
+        .dataTables_filter {
+            float: right;
+            color: #f0e6d2;
+            margin-bottom: 10px;
+        }
+        .dataTables_filter label {
+            color: #f0e6d2;
+        }
+        .dataTables_filter input {
+            background-color: #333;
+            color: #f0e6d2;
+            border: 1px solid #444;
+            padding: 5px;
+        }
+        #leagueFilter, #classFilter {
+            background-color: #333;
+            color: #f0e6d2;
+            border: 1px solid #444;
+            padding: 5px;
+            margin: 5px;
+        }
+        /* Hide pagination controls */
+        .dataTables_paginate {
+            display: none;
+        }
+        .dataTables_info {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+
+        <h1></h1>
+        <div>
+            <label for="leagueFilter">Filter by League:</label>
+            <select id="leagueFilter">
+                <option value="">All Leagues</option>
+            </select>
+            
+            <label for="classFilter">Filter by Class:</label>
+            <select id="classFilter">
+                <option value="">All Classes</option>
+            </select>
+        </div>
+        
+        <table id="leaderboard" class="display">
+            <thead>
+                <tr>
+                    <th></th> <!-- Column for death icon with no header -->
+                    <th>Rank</th>
+                    <th>Character Name</th>
+                    <th>Account</th>
+                    <th>Level</th>
+                    <th>Class</th>
+                    <th>Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3949</td>
+                    <td>Ash_LrigWoc</td>
+                    <td>Hardcore Settlers</td>
+                    <td>97</td>
+                    <td>Trickster</td>
+                    <td>3399244893</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>3970</td>
+                    <td>AshSlams</td>
+                    <td>Hardcore Settlers</td>
+                    <td>97</td>
+                    <td>Juggernaut</td>
+                    <td>3395259262</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>10324</td>
+                    <td>Azabackonthegrind</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Gladiator</td>
+                    <td>2443682813</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>11289</td>
+                    <td>Azawillgethimthistime</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Trickster</td>
+                    <td>2342284336</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>13153</td>
+                    <td>SeljukR</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>12</td>
+                    <td>Marauder</td>
+                    <td>133403</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>767</td>
+                    <td>SeljukCrying</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Chieftain</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>2430</td>
+                    <td>asdfwerewagzv</td>
+                    <td>Hardcore Settlers</td>
+                    <td>98</td>
+                    <td>Chieftain</td>
+                    <td>3786165132</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>4372</td>
+                    <td>Cruxkdfnjgkjfgn</td>
+                    <td>HC SSF Settlers</td>
+                    <td>94</td>
+                    <td>Slayer</td>
+                    <td>2676925285</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>4795</td>
+                    <td>CruxLoveResetPain</td>
+                    <td>HC SSF Settlers</td>
+                    <td>93</td>
+                    <td>Trickster</td>
+                    <td>2583672494</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>5461</td>
+                    <td>CruxDontDrinkPlay</td>
+                    <td>HC SSF Settlers</td>
+                    <td>93</td>
+                    <td>Hierophant</td>
+                    <td>2464705779</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>6559</td>
+                    <td>CruxPsM</td>
+                    <td>HC SSF Settlers</td>
+                    <td>92</td>
+                    <td>Trickster</td>
+                    <td>2289190704</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>7810</td>
+                    <td>CruxFbin</td>
+                    <td>HC SSF Settlers</td>
+                    <td>91</td>
+                    <td>Hierophant</td>
+                    <td>2100448863</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>8189</td>
+                    <td>CruxVBLongNeck</td>
+                    <td>HC SSF Settlers</td>
+                    <td>90</td>
+                    <td>Hierophant</td>
+                    <td>2040532359</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>8321</td>
+                    <td>CruxPS</td>
+                    <td>HC SSF Settlers</td>
+                    <td>90</td>
+                    <td>Trickster</td>
+                    <td>2021099533</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>9338</td>
+                    <td>CruxBad</td>
+                    <td>HC SSF Settlers</td>
+                    <td>89</td>
+                    <td>Trickster</td>
+                    <td>1903894080</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>13865</td>
+                    <td>cruxLsfker</td>
+                    <td>HC SSF Settlers</td>
+                    <td>84</td>
+                    <td>Slayer</td>
+                    <td>1287966917</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>13312</td>
+                    <td>Castr_Totes</td>
+                    <td>HC SSF Settlers</td>
+                    <td>85</td>
+                    <td>Hierophant</td>
+                    <td>1353120933</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>13758</td>
+                    <td>Castr_ChurBow</td>
+                    <td>HC SSF Settlers</td>
+                    <td>85</td>
+                    <td>Champion</td>
+                    <td>1299520999</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>7222</td>
+                    <td>Castr_Dontevenknow</td>
+                    <td>Hardcore Settlers</td>
+                    <td>94</td>
+                    <td>Slayer</td>
+                    <td>2817018325</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>13117</td>
+                    <td>Castr_BigLife</td>
+                    <td>Hardcore Settlers</td>
+                    <td>91</td>
+                    <td>Juggernaut</td>
+                    <td>2157139545</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3076</td>
+                    <td>Crispy_Livid</td>
+                    <td>Hardcore Settlers</td>
+                    <td>97</td>
+                    <td>Occultist</td>
+                    <td>3620103172</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>4344</td>
+                    <td>Crispy_High_lifer</td>
+                    <td>Hardcore Settlers</td>
+                    <td>96</td>
+                    <td>Chieftain</td>
+                    <td>3302811384</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>5329</td>
+                    <td>last_crisper</td>
+                    <td>Hardcore Settlers</td>
+                    <td>95</td>
+                    <td>Trickster</td>
+                    <td>3106101415</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>6907</td>
+                    <td>CrispyMamba</td>
+                    <td>Hardcore Settlers</td>
+                    <td>94</td>
+                    <td>Trickster</td>
+                    <td>2874734063</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>7494</td>
+                    <td>Run_Crispy_Run</td>
+                    <td>Hardcore Settlers</td>
+                    <td>94</td>
+                    <td>Elementalist</td>
+                    <td>2776671484</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>9236</td>
+                    <td>Crispy_the_high_life</td>
+                    <td>Hardcore Settlers</td>
+                    <td>93</td>
+                    <td>Inquisitor</td>
+                    <td>2558780893</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>10458</td>
+                    <td>Run_Crispy_Run</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Occultist</td>
+                    <td>2427700573</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>13554</td>
+                    <td>Crispy_Metaslave</td>
+                    <td>Hardcore Settlers</td>
+                    <td>91</td>
+                    <td>Trickster</td>
+                    <td>2120744559</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>5597</td>
+                    <td>Droppa_settle</td>
+                    <td>Hardcore Settlers</td>
+                    <td>95</td>
+                    <td>Chieftain</td>
+                    <td>3050720982</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>10454</td>
+                    <td>Droppaaaaa</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Chieftain</td>
+                    <td>2428284909</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>656</td>
+                    <td>GB_ArtifactEnjoyer</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Trickster</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3686</td>
+                    <td>GB_iSuck</td>
+                    <td>Hardcore Settlers</td>
+                    <td>97</td>
+                    <td>Gladiator</td>
+                    <td>3454557994</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>3962</td>
+                    <td>GB_BigSword</td>
+                    <td>Hardcore Settlers</td>
+                    <td>97</td>
+                    <td>Slayer</td>
+                    <td>3396767520</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>3432</td>
+                    <td>GibblesHCPS</td>
+                    <td>Hardcore Settlers</td>
+                    <td>97</td>
+                    <td>Trickster</td>
+                    <td>3512895475</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3400</td>
+                    <td>SSF_Hierophant_Settler</td>
+                    <td>HC SSF Settlers</td>
+                    <td>95</td>
+                    <td>Hierophant</td>
+                    <td>2900845183</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3522</td>
+                    <td>SSF_Hardcore_Settler</td>
+                    <td>HC SSF Settlers</td>
+                    <td>95</td>
+                    <td>Chieftain</td>
+                    <td>2879703229</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>9263</td>
+                    <td>Von_Willebrands_Curse</td>
+                    <td>HC SSF Settlers</td>
+                    <td>89</td>
+                    <td>Gladiator</td>
+                    <td>1917014887</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>10384</td>
+                    <td>SSF_Templar_Settler</td>
+                    <td>HC SSF Settlers</td>
+                    <td>88</td>
+                    <td>Hierophant</td>
+                    <td>1748721605</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>13246</td>
+                    <td>SSF_Pathfinder_Settler</td>
+                    <td>HC SSF Settlers</td>
+                    <td>85</td>
+                    <td>Pathfinder</td>
+                    <td>1360797657</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>11617</td>
+                    <td>Alohaaaaaaa</td>
+                    <td>HC Ruthless Settlers</td>
+                    <td>3</td>
+                    <td>Duelist</td>
+                    <td>3121</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>14502</td>
+                    <td>SillyGeese</td>
+                    <td>HC SSF Settlers</td>
+                    <td>84</td>
+                    <td>Hierophant</td>
+                    <td>1209723428</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>445</td>
+                    <td>JibPowerSipper</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Inquisitor</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>9955</td>
+                    <td>JibSlap</td>
+                    <td>Hardcore Settlers</td>
+                    <td>93</td>
+                    <td>Pathfinder</td>
+                    <td>2482768561</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>6445</td>
+                    <td>Kaysee_ElbowWanker</td>
+                    <td>HC SSF Settlers</td>
+                    <td>92</td>
+                    <td>Chieftain</td>
+                    <td>2303383358</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>8491</td>
+                    <td>KCDC_Sunderstruck</td>
+                    <td>Hardcore Settlers</td>
+                    <td>93</td>
+                    <td>Gladiator</td>
+                    <td>2656248006</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>12516</td>
+                    <td>Kaysee_Ellynono</td>
+                    <td>Hardcore Settlers</td>
+                    <td>91</td>
+                    <td>Warden</td>
+                    <td>2219750566</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>8523</td>
+                    <td>kezzOfExile</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>26</td>
+                    <td>Ranger</td>
+                    <td>2638930</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>12338</td>
+                    <td>KezzOfExile</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>14</td>
+                    <td>Shadow</td>
+                    <td>220293</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>246</td>
+                    <td>Locurian</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>87</td>
+                    <td>Champion</td>
+                    <td>1569304507</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>1165</td>
+                    <td>Locurian</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>78</td>
+                    <td>Gladiator</td>
+                    <td>764367494</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>4161</td>
+                    <td>Locurian</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>54</td>
+                    <td>Gladiator</td>
+                    <td>83289616</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>5434</td>
+                    <td>Locurian</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>45</td>
+                    <td>Gladiator</td>
+                    <td>35253301</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>7335</td>
+                    <td>Locurian</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>34</td>
+                    <td>Gladiator</td>
+                    <td>8904617</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>7723</td>
+                    <td>Locurian</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>30</td>
+                    <td>Duelist</td>
+                    <td>5464552</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>1633</td>
+                    <td>MemeoNNNNN</td>
+                    <td>Hardcore Settlers</td>
+                    <td>99</td>
+                    <td>Juggernaut</td>
+                    <td>4056786002</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>9</td>
+                    <td>Hoax_is_the_RF_Master</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Chieftain</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>695</td>
+                    <td>Meme</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Trickster</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>5031</td>
+                    <td>Meme</td>
+                    <td>Hardcore Settlers</td>
+                    <td>96</td>
+                    <td>Trickster</td>
+                    <td>3153633292</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>9285</td>
+                    <td>Haha</td>
+                    <td>Hardcore Settlers</td>
+                    <td>93</td>
+                    <td>Juggernaut</td>
+                    <td>2554272839</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>11885</td>
+                    <td>Hoax_Hiero_Is_Shit</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Hierophant</td>
+                    <td>2285633298</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>13570</td>
+                    <td>BobCopiumZerker</td>
+                    <td>HC SSF Settlers</td>
+                    <td>85</td>
+                    <td>Berserker</td>
+                    <td>1320429514</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>532</td>
+                    <td>AFK_Cerberus</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Slayer</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>7536</td>
+                    <td>AFK_xdd</td>
+                    <td>Hardcore Settlers</td>
+                    <td>94</td>
+                    <td>Slayer</td>
+                    <td>2772181310</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>10235</td>
+                    <td>NormBoss</td>
+                    <td>Hardcore Settlers</td>
+                    <td>93</td>
+                    <td>Berserker</td>
+                    <td>2456293093</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>8</td>
+                    <td>Ranggarn_BRB_PlayingWoW</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>94</td>
+                    <td>Inquisitor</td>
+                    <td>2786320858</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>108</td>
+                    <td>RanggarnBossTomoroJebai</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>90</td>
+                    <td>Necromancer</td>
+                    <td>1979350073</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>118</td>
+                    <td>Ranggarn_Cold_Smegma</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>90</td>
+                    <td>Ascendant</td>
+                    <td>1952685162</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>137</td>
+                    <td>Ranggarn_Old_Boy</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>89</td>
+                    <td>Inquisitor</td>
+                    <td>1885030819</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>158</td>
+                    <td>Ranggarn_Cowgirl_Spermb</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>89</td>
+                    <td>Necromancer</td>
+                    <td>1810449933</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>206</td>
+                    <td>Raaaaaaaaaaaaaaaanggarn</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>88</td>
+                    <td>Trickster</td>
+                    <td>1663549988</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>483</td>
+                    <td>Ranggarn_Test</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>84</td>
+                    <td>Saboteur</td>
+                    <td>1237129546</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>497</td>
+                    <td>Ranggarn_Badass_MFer</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>84</td>
+                    <td>Chieftain</td>
+                    <td>1221746623</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>802</td>
+                    <td>Ranggarn_Toby_Kleer</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>81</td>
+                    <td>Hierophant</td>
+                    <td>973843909</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>1744</td>
+                    <td>Ranggarn_TobyKleer</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>74</td>
+                    <td>Ascendant</td>
+                    <td>551556312</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>1956</td>
+                    <td>Ranggarn_Old_Man_Balls</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>73</td>
+                    <td>Hierophant</td>
+                    <td>500737670</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>2248</td>
+                    <td>Ranggarn_Fifty_Cent</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>72</td>
+                    <td>Saboteur</td>
+                    <td>440657393</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>2265</td>
+                    <td>Ranggarn_ABOBA_YAP</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>72</td>
+                    <td>Champion</td>
+                    <td>437259163</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>8039</td>
+                    <td>Ranggarn_Big_G_Bank</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>28</td>
+                    <td>Witch</td>
+                    <td>3699813</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>7305</td>
+                    <td>Raz_R_Evis</td>
+                    <td>HC SSF R Settlers</td>
+                    <td>34</td>
+                    <td>Duelist</td>
+                    <td>9177994</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>1337</td>
+                    <td>meatballs_sett</td>
+                    <td>Hardcore Settlers</td>
+                    <td>99</td>
+                    <td>Chieftain</td>
+                    <td>4191802100</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>6256</td>
+                    <td>meatballs_settl</td>
+                    <td>Hardcore Settlers</td>
+                    <td>95</td>
+                    <td>Trickster</td>
+                    <td>2951227663</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>10265</td>
+                    <td>meatballs_settlers</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Trickster</td>
+                    <td>2451390267</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>13420</td>
+                    <td>meatballs_settle</td>
+                    <td>Hardcore Settlers</td>
+                    <td>91</td>
+                    <td>Trickster</td>
+                    <td>2132305506</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>286</td>
+                    <td>shum_TobyKleer</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Gladiator</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>4311</td>
+                    <td>Shum_RFcreature</td>
+                    <td>Hardcore Settlers</td>
+                    <td>96</td>
+                    <td>Chieftain</td>
+                    <td>3311260354</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>9972</td>
+                    <td>shum_creatureSilly</td>
+                    <td>Hardcore Settlers</td>
+                    <td>93</td>
+                    <td>Slayer</td>
+                    <td>2481862630</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>11929</td>
+                    <td>shum_trickstuh</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Trickster</td>
+                    <td>2281805678</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>319</td>
+                    <td>Smacednado</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Pathfinder</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>1666</td>
+                    <td>Smaced_ScreenClutter</td>
+                    <td>Hardcore Settlers</td>
+                    <td>99</td>
+                    <td>Slayer</td>
+                    <td>4046701503</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>2248</td>
+                    <td>Smaced____</td>
+                    <td>Hardcore Settlers</td>
+                    <td>98</td>
+                    <td>Gladiator</td>
+                    <td>3846718880</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>7714</td>
+                    <td>Smaced_SettlingCowgirl</td>
+                    <td>Hardcore Settlers</td>
+                    <td>94</td>
+                    <td>Juggernaut</td>
+                    <td>2745459835</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>9150</td>
+                    <td>Stealthy_bleeeed</td>
+                    <td>Hardcore Settlers</td>
+                    <td>93</td>
+                    <td>Gladiator</td>
+                    <td>2567229467</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>14979</td>
+                    <td>stealthy_frosty</td>
+                    <td>Hardcore Settlers</td>
+                    <td>90</td>
+                    <td>Hierophant</td>
+                    <td>1988611701</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>4410</td>
+                    <td>SynnroPileBunker</td>
+                    <td>Hardcore Settlers</td>
+                    <td>96</td>
+                    <td>Chieftain</td>
+                    <td>3287461112</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>10321</td>
+                    <td>SynnroReaper</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Occultist</td>
+                    <td>2443800841</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>10742</td>
+                    <td>SynnroDandyStep</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Chieftain</td>
+                    <td>2397879417</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>10329</td>
+                    <td>TT_Zap</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Hierophant</td>
+                    <td>2443592976</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>11426</td>
+                    <td>TT_BasedSimping</td>
+                    <td>Hardcore Settlers</td>
+                    <td>92</td>
+                    <td>Gladiator</td>
+                    <td>2329933181</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>14436</td>
+                    <td>TT_SimpForSeavalour</td>
+                    <td>Hardcore Settlers</td>
+                    <td>90</td>
+                    <td>Trickster</td>
+                    <td>2034919219</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>371</td>
+                    <td>Freneyballs</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Hierophant</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>6135</td>
+                    <td>Freneyasdfasdfaaa</td>
+                    <td>Hardcore Settlers</td>
+                    <td>95</td>
+                    <td>Hierophant</td>
+                    <td>2967279956</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>14571</td>
+                    <td>Freney_aksdflasmd</td>
+                    <td>Hardcore Settlers</td>
+                    <td>90</td>
+                    <td>Hierophant</td>
+                    <td>2022544425</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>4351</td>
+                    <td>Eizzy_Mom</td>
+                    <td>Hardcore Settlers</td>
+                    <td>96</td>
+                    <td>Hierophant</td>
+                    <td>3301291987</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>7772</td>
+                    <td>Eizzy_LS</td>
+                    <td>Hardcore Settlers</td>
+                    <td>94</td>
+                    <td>Trickster</td>
+                    <td>2737752617</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>9959</td>
+                    <td>Eizzy_SST</td>
+                    <td>Hardcore Settlers</td>
+                    <td>93</td>
+                    <td>Slayer</td>
+                    <td>2482587788</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>9529</td>
+                    <td>Surpus_Settlers</td>
+                    <td>HC SSF Settlers</td>
+                    <td>89</td>
+                    <td>Juggernaut</td>
+                    <td>1870251039</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>452</td>
+                    <td>GB_AbsoluteCrinema</td>
+                    <td>Hardcore Settlers</td>
+                    <td>100</td>
+                    <td>Chieftain</td>
+                    <td>4250334444</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>100</td>
+                    <td>CruxPSMtwo</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>84</td>
+                    <td>Trickster</td>
+                    <td>1262396195</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>6</td>
+                    <td>Meme</td>
+                    <td>HC Necro Settlers</td>
+                    <td>94</td>
+                    <td>Chieftain</td>
+                    <td>2675789709</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>4397</td>
+                    <td>HoaxMulessadsada</td>
+                    <td>HC Necro Settlers</td>
+                    <td>4</td>
+                    <td>Witch</td>
+                    <td>4825</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>632</td>
+                    <td>Castr_twopointzero</td>
+                    <td>HC Necro Settlers</td>
+                    <td>60</td>
+                    <td>Guardian</td>
+                    <td>154187871</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>6144</td>
+                    <td>ewdgfsfbcgvbv</td>
+                    <td>HC Necro Settlers</td>
+                    <td>2</td>
+                    <td>Ranger</td>
+                    <td>525</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>1657</td>
+                    <td>Epedixxle</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>27</td>
+                    <td>Templar</td>
+                    <td>3261619</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>4537</td>
+                    <td>Epedizzle</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>2</td>
+                    <td>Templar</td>
+                    <td>800</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>729</td>
+                    <td>SurplusCheif</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>53</td>
+                    <td>Chieftain</td>
+                    <td>81987586</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>1498</td>
+                    <td>Castr_TwoPointZZero</td>
+                    <td>HC Necro Settlers</td>
+                    <td>36</td>
+                    <td>Guardian</td>
+                    <td>11886772</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3032</td>
+                    <td>Epedizzle_IHateHC</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>8</td>
+                    <td>Templar</td>
+                    <td>31994</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>5404</td>
+                    <td>DangdleN</td>
+                    <td>HC Necro Settlers</td>
+                    <td>2</td>
+                    <td>Witch</td>
+                    <td>1049</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>2296</td>
+                    <td>Epedizzle_IHateHC</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>15</td>
+                    <td>Shadow</td>
+                    <td>283573</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>490</td>
+                    <td>Epedizzle_CantHC</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>63</td>
+                    <td>Hierophant</td>
+                    <td>204839906</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3687</td>
+                    <td>PrematureGoat_YouTube</td>
+                    <td>HC Necro Settlers</td>
+                    <td>7</td>
+                    <td>Templar</td>
+                    <td>22315</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>1131</td>
+                    <td>PrematureGoat_YouTube</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>40</td>
+                    <td>Hierophant</td>
+                    <td>19888194</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>1042</td>
+                    <td>SurplusShatter</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>43</td>
+                    <td>Juggernaut</td>
+                    <td>25916003</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>496</td>
+                    <td>Castr_TwoPointOh</td>
+                    <td>HC Necro Settlers</td>
+                    <td>65</td>
+                    <td>Guardian</td>
+                    <td>241661342</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>1720</td>
+                    <td>Dangdle</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>25</td>
+                    <td>Ranger</td>
+                    <td>2510355</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>2205</td>
+                    <td>Dangdle</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>16</td>
+                    <td>Shadow</td>
+                    <td>375536</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3996</td>
+                    <td>Dangdle</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>3</td>
+                    <td>Shadow</td>
+                    <td>2417</td>
+                </tr>
+    
+                <tr>
+                    <td></td> <!-- Death icon cell -->
+                    <td>1055</td>
+                    <td>InsanitisMkIII</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>42</td>
+                    <td>Trickster</td>
+                    <td>24746024</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>2991</td>
+                    <td>InsanitisMkI</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>8</td>
+                    <td>Shadow</td>
+                    <td>36012</td>
+                </tr>
+    
+                <tr>
+                    <td><span class='death-icon'></span></td> <!-- Death icon cell -->
+                    <td>3067</td>
+                    <td>InsanitisMkII</td>
+                    <td>HC SSF Necro Settlers</td>
+                    <td>7</td>
+                    <td>Shadow</td>
+                    <td>27775</td>
+                </tr>
+    
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTables with forced sorting by Rank and no sorting on other columns
+            var table = $('#leaderboard').DataTable({
+                "order": [[1, "asc"]],  // Force sorting by Rank (column index 1 now)
+                "pageLength": 10,
+                "lengthChange": false,
+                "info": false,
+                "paging": false,  // Disable pagination
+                "stripeClasses": [],  // Disable DataTables' built-in row striping
+                "columnDefs": [
+                    { "orderable": false, "targets": "_all" }  // Disable sorting on all columns except Rank
+                ]
+            });
+
+            // Populate league filter options (account column is now index 3)
+            var leagueFilter = $('#leagueFilter');
+            table.column(3).data().unique().sort().each(function(d) {
+                leagueFilter.append('<option value="' + d + '">' + d + '</option>');
+            });
+
+            // Populate class filter options (class column is now index 5)
+            var classFilter = $('#classFilter');
+            table.column(5).data().unique().sort().each(function(d) {
+                classFilter.append('<option value="' + d + '">' + d + '</option>');
+            });
+
+            // Filter by league
+            leagueFilter.on('change', function() {
+                var selectedLeague = $.fn.dataTable.util.escapeRegex($(this).val());
+                table.column(3).search(selectedLeague ? '^' + selectedLeague + '$' : '', true, false).draw();
+            });
+
+            // Filter by class
+            classFilter.on('change', function() {
+                var selectedClass = $.fn.dataTable.util.escapeRegex($(this).val());
+                table.column(5).search(selectedClass ? '^' + selectedClass + '$' : '', true, false).draw();
+            });
+        });
+    </script>
+</body>
+</html>
